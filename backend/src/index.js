@@ -1,13 +1,9 @@
 const express = require('express');
+const routes = require('./routes');
 
 const app = express();
 
 app.use(express.json());
-
-app.get('/', (request, response) => response.json({
-    titulo: 'Ola Mundo!',
-    evento: 'Semana OmniStack 11',
-    aluno: 'Caio Sales'
-}));
+app.use(routes);
 
 app.listen(3333);
