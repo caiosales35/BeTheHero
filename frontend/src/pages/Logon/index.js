@@ -8,14 +8,14 @@ import logoImg from '../../assets/logo.svg';
 
 export default function Logon(){
     const [id, setId] = useState('');
-    const history = userHistory();
+    const history = useHistory();
 
     async function handleLogin(e){
         e.preventDefault();
         try{
             const response = await api.post('sessions', {id});
             localStorage.setItem('ongId', id);
-            localStorage.setItem('ongName', respose.data.name);
+            localStorage.setItem('ongName', response.data.name);
             history.push('/profile');
         }catch (err){
             alert('Falha no login, tente novamente');
